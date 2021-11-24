@@ -3,6 +3,9 @@ package com.example.part3_ch02_todaysaying
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.part3_ch02_todaysaying.databinding.ActivityMainBinding
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,12 +18,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(mainBinding.root)
 
         initViews()
+        initData()
 
     }
 
-    fun initViews() {
+    private fun initViews() {
 
         mainBinding.viewPager.adapter = QuotesPagerAdapter(emptyList())
+
+    }
+
+    private fun initData() {
+        val remoteConfig = Firebase.remoteConfig
+        // 서버에서 막지 않는 이상 앱에 들어올때마다 패치 진행
+        remoteConfig.setConfigSettingsAsync(
+            remoteConfigSettings {
+                minimumFetchIntervalInSeconds = 0
+            }
+        )
+
+        remoteConfig.fetchAndActivate().addOnCompleteListener {
+            if (it.isSuccessful) {
+
+            }
+        }
 
     }
 
