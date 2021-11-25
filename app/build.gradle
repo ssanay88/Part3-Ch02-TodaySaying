@@ -45,8 +45,8 @@ dependencies {
 
     // firebase 관련 의존성
     implementation platform ('com.google.firebase:firebase-bom:29.0.0')
-    implementation 'com.google.firebase:firebase-config-ktx'    // config 의존성 추가
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-config-ktx'    // config 의존성 추가
 
 
 
