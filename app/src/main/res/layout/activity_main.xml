@@ -9,17 +9,23 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
 </FrameLayout>
 
 
-<!--
-ViewPager2 : ViewPager에서 업그레이드된 버전 , ViewPager1을 실무에서 많이 사용 but 2가 주로 사용될 가능성 많음
-기존 가로만 스와이프에서 가로,세로 모두 가능
-recyclerView 기반
+    <!--
+    ViewPager2 : ViewPager에서 업그레이드된 버전 , ViewPager1을 실무에서 많이 사용 but 2가 주로 사용될 가능성 많음
+    기존 가로만 스와이프에서 가로,세로 모두 가능
+    recyclerView 기반
 
-화면을 꽉 채우는 뷰를 사용하는 경우 constraint 레이아웃보다 Frame 레이아웃이 좀 더 괜찮음
+    화면을 꽉 채우는 뷰를 사용하는 경우 constraint 레이아웃보다 Frame 레이아웃이 좀 더 괜찮음
 
 
--->
+    -->
