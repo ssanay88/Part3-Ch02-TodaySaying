@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        initViews()
-        initData()
+        initViews()    // 뷰들에 대한 설정
+        initData()    // 불러온 데이터들을 뷰에 구현
 
     }
 
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         // 패치가 비동기적으로 진행되기 때문에 리스너 설정
         remoteConfig.fetchAndActivate().addOnCompleteListener {
             // 패치 작업이 완료될 경우
-            mainBinding.progressBar.visibility = View.GONE
+            mainBinding.progressBar.visibility = View.GONE    // 프로그레스바 안보이도록 처리
             if (it.isSuccessful) {
                 val quotes = parseQuotesJson(remoteConfig.getString("quotes"))
                 val isNameRevealed = remoteConfig.getBoolean("is_name_revealed")
@@ -106,6 +106,7 @@ class MainActivity : AppCompatActivity() {
         // json(String) 배열 -> json(Object)로 이루어진 리스트 -> Quote 데이터 리스트로 반환
     }
 
+    // 뷰페이저 어댑터에 받아온 데이터들을 연결
     private fun displayQuotesPager(quotes:List<Quote> , isNameRevealed:Boolean) {
 
         val adapter = QuotesPagerAdapter(
